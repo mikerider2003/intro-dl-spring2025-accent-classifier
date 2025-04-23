@@ -43,6 +43,27 @@ def prepare_datasets(data_dir='./data/Train', test_size=0.2, max_len=16000):
     val_dataset = AccentAudioDataset(val_files, val_labels, max_len)
     return train_dataset, val_dataset
 
+class TestAudioDataset(torch.utils.data.Dataset):
+    def __init__(self, file_paths, max_len=16000):
+        self.file_paths = file_paths
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.file_paths)
+
+    def __getitem__(self, idx):
+        filepath = self.file_paths[idx]
+        waveform, sr = torchaudio.load(filepath)
+        waveform = waveform.mean(dim=0).unsqueeze(0)
+
+        if waveform.size(1) < self.max_len:
+            pad_len = self.max_len - waveform.size(1)
+            waveform = torch.nn.functional.pad(waveform, (0, pad_len))
+        else:
+            waveform = waveform[:, :self.max_len]
+
+        return filepath, waveform
+
 if __name__ == "__main__":
     train_dataset, val_dataset = prepare_datasets()
     print(f"Train dataset size: {len(train_dataset)}")
