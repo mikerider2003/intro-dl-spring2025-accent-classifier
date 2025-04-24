@@ -52,11 +52,11 @@ def evaluate(model, dataloader, criterion, device):
 
 def objective(trial):
     # Define hyperparameters to optimize
-    batch_size = trial.suggest_categorical('batch_size', [16, 32]) # Best was 16
-    learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True) # Best was ~0.005
-    num_epochs = trial.suggest_int('num_epochs', 20, 40) # Best was 28
-    weight_decay = trial.suggest_float('weight_decay', 1e-5, 1e-2, log=True) # Best was ~0.0008
-    dropout_rate = trial.suggest_float('dropout_rate', 0.1, 0.5) # Add dropout rate tuning
+    batch_size = trial.suggest_categorical('batch_size', [16, 32, 64])
+    learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-1, log=True)
+    num_epochs = trial.suggest_int('num_epochs', 15, 50)
+    weight_decay = trial.suggest_float('weight_decay', 1e-6, 1e-2, log=True)
+    dropout_rate = trial.suggest_float('dropout_rate', 0.2, 0.5)
 
     # Print trial information
     print(f"\n{'='*50}")
