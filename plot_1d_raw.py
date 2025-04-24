@@ -60,14 +60,25 @@ def plot_hyperparameter_search_results(study, save_path=None):
         
         # Plot optimization history
         fig1 = plot_optimization_history(study)
+        if save_path:
+            history_path = save_path.replace('.png', '_history.png')
+            fig1.write_image(history_path)
+            print(f"Optimization history saved to {history_path}")
         fig1.show()
         
         # Plot parameter importances
         fig2 = plot_param_importances(study)
+        if save_path:
+            importance_path = save_path.replace('.png', '_importance.png')
+            fig2.write_image(importance_path)
+            print(f"Parameter importance saved to {importance_path}")
         fig2.show()
         
     except ImportError:
         print("Optuna visualization package not available.")
+    except Exception as e:
+        print(f"Error generating Optuna visualizations: {e}")
+        print("If this relates to missing packages, try: pip install plotly kaleido")
 
 if __name__ == "__main__":
     file_name = "cnn1d_model_metrics.npy"
@@ -86,7 +97,7 @@ if __name__ == "__main__":
     print(f"Best cross-validated accuracy: {metrics['best_cv_acc']:.4f}")
     
     # Plot training metrics
-    plot_training_metrics(train_losses, train_accuracies, save_path="Figures/1d_raw.png.png")
+    plot_training_metrics(train_losses, train_accuracies, save_path="Figures/1d_raw.png")
     
     # Load and plot the Optuna study results
     try:

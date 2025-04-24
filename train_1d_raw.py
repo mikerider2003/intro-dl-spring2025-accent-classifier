@@ -135,10 +135,10 @@ def main():
     study = optuna.create_study(direction='maximize', 
                               pruner=optuna.pruners.MedianPruner(n_warmup_steps=5))
     # TODO: Change n_trials to 30 for actual optimization
-    study.optimize(objective, n_trials=1)  
+    study.optimize(objective, n_trials=3)  
     
     joblib.dump(study, "cnn1d_model_optuna_study.pkl")
-    print("Optuna study saved to optuna_study.pkl")
+    print("Optuna study saved to cnn1d_model_optuna_study.pkl")
 
     # Get the best hyperparameters
     best_params = study.best_params
