@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.model_selection import KFold
 
 from models.cnn_1d_raw_audio import CNN1DRawAudio
-from data_loader import prepare_datasets
+from data_loader_1d_raw import prepare_datasets
 
 def train(model, dataloader, criterion, optimizer, device):
     model.train()
