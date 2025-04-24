@@ -67,7 +67,7 @@ def objective(trial):
     # Fixed parameters
     data_path = './data/Train'
     num_classes = 5
-    max_len = 16000
+    max_len = 80000
     k_folds = 5  # Number of folds for cross-validation
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
@@ -129,7 +129,7 @@ def main():
     # Fixed parameters
     data_path = './data/Train'
     num_classes = 5
-    max_len = 16000
+    max_len = 80000
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Create an Optuna study for maximizing accuracy
