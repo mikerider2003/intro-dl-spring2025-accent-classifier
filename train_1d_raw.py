@@ -123,6 +123,12 @@ def objective(trial):
     return mean_val_acc
 
 def main():
+    # Fixed parameters
+    data_path = './data/Train'
+    num_classes = 5
+    max_len = 16000
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
     # Create an Optuna study for maximizing accuracy
     study = optuna.create_study(direction='maximize', 
                               pruner=optuna.pruners.MedianPruner(n_warmup_steps=5))
