@@ -52,7 +52,7 @@ def evaluate(model, dataloader, criterion, device):
 
 def objective(trial):
     # Define hyperparameters to optimize
-    batch_size = trial.suggest_categorical('batch_size', [16, 32, 64])
+    batch_size = trial.suggest_categorical('batch_size', [2,4,8])
     learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-1, log=True)
     num_epochs = trial.suggest_int('num_epochs', 15, 50)
     weight_decay = trial.suggest_float('weight_decay', 1e-6, 1e-2, log=True)
