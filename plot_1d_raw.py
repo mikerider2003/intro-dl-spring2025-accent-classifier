@@ -1,5 +1,6 @@
 import numpy as np
 import optuna.visualization
+import joblib
 
 import matplotlib.pyplot as plt
 
@@ -85,4 +86,13 @@ if __name__ == "__main__":
     print(f"Best cross-validated accuracy: {metrics['best_cv_acc']:.4f}")
     
     # Plot training metrics
-    plot_training_metrics(train_losses, train_accuracies, save_path="training_metrics.png")
+    plot_training_metrics(train_losses, train_accuracies, save_path="Figures/1d_raw.png.png")
+    
+    # Load and plot the Optuna study results
+    try:
+        study = joblib.load("cnn1d_model_optuna_study.pkl")
+        plot_hyperparameter_search_results(study, save_path="Figures/1d_raw_HP_search.png")
+    except FileNotFoundError:
+        print("Optuna study file not found. Run training first.")
+    except ImportError:
+        print("Joblib package not available.")

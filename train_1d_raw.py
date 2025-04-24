@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import optuna
+import joblib
+
 from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.model_selection import KFold
 
@@ -135,6 +137,9 @@ def main():
     # TODO: Change n_trials to 30 for actual optimization
     study.optimize(objective, n_trials=1)  
     
+    joblib.dump(study, "cnn1d_model_optuna_study.pkl")
+    print("Optuna study saved to optuna_study.pkl")
+
     # Get the best hyperparameters
     best_params = study.best_params
     best_value = study.best_value
