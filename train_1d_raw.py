@@ -51,7 +51,7 @@ def main():
     # ==== Config ====
     data_path = './data/Train'
     batch_size = 16
-    num_epochs = 10
+    num_epochs = 30
     learning_rate = 0.001
     num_classes = 5
     max_len = 16000
