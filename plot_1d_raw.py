@@ -48,37 +48,88 @@ def plot_training_metrics(train_losses, train_accuracies, save_path=None):
 
 def plot_hyperparameter_search_results(study, save_path=None):
     """
-    Plot the results from the hyperparameter optimization study.
+    Plot the results from the hyperparameter optimization study using only matplotlib.
     
     Args:
         study: The Optuna study object
         save_path: Path to save the plot image (optional)
     """
-    # Use Optuna visualization functions if available
     try:
-        from optuna.visualization import plot_optimization_history, plot_param_importances
+        import matplotlib.pyplot as plt
+        import numpy as np
         
-        # Plot optimization history
-        fig1 = plot_optimization_history(study)
+        # Create a figure with subplots - make it wider
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
+        
+        # Extract data for history plot
+        trials = study.trials
+        values = [t.value for t in trials if t.value is not None]
+        trial_numbers = [t.number for t in trials if t.value is not None]
+        
+        # Plot optimization history on first subplot
+        ax1.plot(trial_numbers, values, 'o-', color='blue', markersize=8)
+        ax1.set_xlabel('Trial Number', fontsize=12)
+        ax1.set_ylabel('Accuracy', fontsize=12)
+        ax1.set_title('Optimization History', fontsize=14)
+        ax1.grid(True, alpha=0.3)
+        ax1.tick_params(axis='both', labelsize=11)
+        
+        # Extract data for parameter importances
+        importances = {}
+        for trial in trials:
+            if trial.value is None:
+                continue
+            for param_name, param_value in trial.params.items():
+                if param_name not in importances:
+                    importances[param_name] = []
+                importances[param_name].append((param_value, trial.value))
+        
+        # Calculate simple correlations as importance metric
+        param_importances = {}
+        for param_name, values in importances.items():
+            if len(values) <= 1:
+                continue
+            x = np.array([float(v[0]) if isinstance(v[0], (int, float)) else hash(str(v[0])) for v in values])
+            y = np.array([v[1] for v in values])
+            if len(np.unique(x)) > 1:  # Need at least two distinct values
+                correlation = abs(np.corrcoef(x, y)[0, 1]) if not np.isnan(np.corrcoef(x, y)[0, 1]) else 0
+                param_importances[param_name] = correlation
+        
+        # Sort importances
+        sorted_importances = sorted(param_importances.items(), key=lambda x: x[1], reverse=True)
+        
+        # Plot parameter importances on second subplot
+        if sorted_importances:
+            names = [item[0] for item in sorted_importances]
+            values = [item[1] for item in sorted_importances]
+            # Adjust the height based on number of parameters
+            bar_height = 0.6
+            y_pos = np.arange(len(names))
+            ax2.barh(y_pos, values, height=bar_height, color='green')
+            ax2.set_yticks(y_pos)
+            ax2.set_yticklabels(names, fontsize=11)
+            ax2.set_xlabel('Importance (Correlation)', fontsize=12)
+            ax2.set_title('Parameter Importances', fontsize=14)
+            # Ensure there's enough vertical space
+            ax2.set_ylim(-0.5, len(names) - 0.5 + 0.5)  # Add extra space at top
+        else:
+            ax2.text(0.5, 0.5, "Not enough data to calculate importances", 
+                    ha='center', va='center', transform=ax2.transAxes, fontsize=12)
+        
+        # Improve overall layout
+        plt.subplots_adjust(wspace=0.3)  # Add more space between subplots
+        plt.tight_layout()
+        
         if save_path:
-            history_path = save_path.replace('.png', '_history.png')
-            fig1.write_image(history_path)
-            print(f"Optimization history saved to {history_path}")
-        fig1.show()
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"Hyperparameter search results saved to {save_path}")
         
-        # Plot parameter importances
-        fig2 = plot_param_importances(study)
-        if save_path:
-            importance_path = save_path.replace('.png', '_importance.png')
-            fig2.write_image(importance_path)
-            print(f"Parameter importance saved to {importance_path}")
-        fig2.show()
-        
+        plt.show()
+            
     except ImportError:
-        print("Optuna visualization package not available.")
+        print("Required packages not available.")
     except Exception as e:
-        print(f"Error generating Optuna visualizations: {e}")
-        print("If this relates to missing packages, try: pip install plotly kaleido")
+        print(f"Error generating visualizations: {e}")
 
 if __name__ == "__main__":
     file_name = "cnn1d_model_metrics.npy"

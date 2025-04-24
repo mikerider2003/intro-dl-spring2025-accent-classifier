@@ -52,15 +52,16 @@ def evaluate(model, dataloader, criterion, device):
 
 def objective(trial):
     # Define hyperparameters to optimize
-    batch_size = trial.suggest_categorical('batch_size', [8, 16, 32])
-    learning_rate = trial.suggest_float('learning_rate', 1e-5, 1e-1, log=True)
-    num_epochs = trial.suggest_int('num_epochs', 10, 30)
-    weight_decay = trial.suggest_float('weight_decay', 1e-6, 1e-3, log=True)
-    
+    batch_size = trial.suggest_categorical('batch_size', [16, 32]) # Best was 16
+    learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True) # Best was ~0.005
+    num_epochs = trial.suggest_int('num_epochs', 20, 40) # Best was 28
+    weight_decay = trial.suggest_float('weight_decay', 1e-5, 1e-2, log=True) # Best was ~0.0008
+    dropout_rate = trial.suggest_float('dropout_rate', 0.1, 0.5) # Add dropout rate tuning
+
     # Print trial information
     print(f"\n{'='*50}")
     print(f"Starting Trial {trial.number}")
-    print(f"Parameters: batch_size={batch_size}, lr={learning_rate:.6f}, epochs={num_epochs}, weight_decay={weight_decay:.6f}")
+    print(f"Parameters: batch_size={batch_size}, lr={learning_rate:.6f}, epochs={num_epochs}, weight_decay={weight_decay:.6f}, dropout={dropout_rate:.2f}") # Added dropout to print
     print(f"{'='*50}")
     
     # Fixed parameters
@@ -92,7 +93,7 @@ def objective(trial):
         val_loader = DataLoader(full_dataset, batch_size=batch_size, sampler=val_subsampler)
         
         # Initialize model
-        model = CNN1DRawAudio(num_classes=num_classes).to(device)
+        model = CNN1DRawAudio(num_classes=num_classes, dropout_rate=dropout_rate).to(device)
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         
@@ -135,7 +136,7 @@ def main():
     study = optuna.create_study(direction='maximize', 
                               pruner=optuna.pruners.MedianPruner(n_warmup_steps=5))
     # TODO: Change n_trials to 30 for actual optimization
-    study.optimize(objective, n_trials=3)  
+    study.optimize(objective, n_trials=50)  
     
     joblib.dump(study, "cnn1d_model_optuna_study.pkl")
     print("Optuna study saved to cnn1d_model_optuna_study.pkl")
@@ -159,6 +160,7 @@ def main():
     learning_rate = best_params['learning_rate']
     num_epochs = best_params['num_epochs']
     weight_decay = best_params.get('weight_decay', 0)
+    dropout_rate = best_params.get('dropout_rate', 0.3)
     
     # Load the full dataset for final model training
     full_dataset = prepare_datasets(data_dir=data_path, max_len=max_len)
@@ -168,7 +170,7 @@ def main():
     print("Data loaded successfully.")
     
     # Initialize model
-    model = CNN1DRawAudio(num_classes=num_classes).to(device)
+    model = CNN1DRawAudio(num_classes=num_classes, dropout_rate=dropout_rate).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     
