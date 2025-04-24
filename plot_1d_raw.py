@@ -1,15 +1,15 @@
 import numpy as np
+import optuna.visualization
+
 import matplotlib.pyplot as plt
 
-def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies, save_path=None):
+def plot_training_metrics(train_losses, train_accuracies, save_path=None):
     """
-    Plot training and validation metrics (loss and accuracy) over epochs on a single plot.
+    Plot training metrics (loss and accuracy) over epochs on a single plot.
     
     Args:
         train_losses: List of training losses per epoch
-        val_losses: List of validation losses per epoch
         train_accuracies: List of training accuracies per epoch
-        val_accuracies: List of validation accuracies per epoch
         save_path: Path to save the plot image (optional)
     """
     epochs = range(1, len(train_losses) + 1)
@@ -17,24 +17,22 @@ def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accura
     # Create a figure with primary and secondary y-axes
     fig, ax1 = plt.subplots(figsize=(10, 6))
     
-    # Plot losses on primary y-axis with reduced opacity
-    train_loss_line, = ax1.plot(epochs, train_losses, 'b--', label='Training Loss', alpha=0.4)
-    val_loss_line, = ax1.plot(epochs, val_losses, 'r--', label='Validation Loss', alpha=0.4)
+    # Plot losses on primary y-axis
+    train_loss_line, = ax1.plot(epochs, train_losses, 'b--', label='Training Loss', alpha=0.6)
     ax1.set_xlabel('Epochs')
-    ax1.set_ylabel('Loss', color='gray')
-    ax1.tick_params(axis='y', labelcolor='gray')
+    ax1.set_ylabel('Loss', color='blue')
+    ax1.tick_params(axis='y', labelcolor='blue')
     
     # Create secondary y-axis for accuracy
     ax2 = ax1.twinx()
-    train_acc_line, = ax2.plot(epochs, train_accuracies, 'b-', marker='o', label='Training Accuracy')
-    val_acc_line, = ax2.plot(epochs, val_accuracies, 'r-', marker='o', label='Validation Accuracy')
-    ax2.set_ylabel('Accuracy', color='black')
-    ax2.tick_params(axis='y', labelcolor='black')
+    train_acc_line, = ax2.plot(epochs, train_accuracies, 'r-', marker='o', label='Training Accuracy')
+    ax2.set_ylabel('Accuracy', color='red')
+    ax2.tick_params(axis='y', labelcolor='red')
     
-    plt.title('Training Metrics')
+    plt.title('Final Model Training Metrics')
     
-    # Combine legends from both axes
-    lines = [train_loss_line, val_loss_line, train_acc_line, val_acc_line]
+    # Add both lines to the legend
+    lines = [train_loss_line, train_acc_line]
     labels = [line.get_label() for line in lines]
     plt.legend(lines, labels, loc='center right')
     
@@ -47,16 +45,44 @@ def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accura
     
     plt.show()
 
+def plot_hyperparameter_search_results(study, save_path=None):
+    """
+    Plot the results from the hyperparameter optimization study.
+    
+    Args:
+        study: The Optuna study object
+        save_path: Path to save the plot image (optional)
+    """
+    # Use Optuna visualization functions if available
+    try:
+        from optuna.visualization import plot_optimization_history, plot_param_importances
+        
+        # Plot optimization history
+        fig1 = plot_optimization_history(study)
+        fig1.show()
+        
+        # Plot parameter importances
+        fig2 = plot_param_importances(study)
+        fig2.show()
+        
+    except ImportError:
+        print("Optuna visualization package not available.")
+
 if __name__ == "__main__":
     file_name = "cnn1d_model_metrics.npy"
     
     # Load the metrics from the .npy file
     metrics = np.load(file_name, allow_pickle=True).item()
     
+    # Extract available metrics
     train_losses = metrics['train_loss']
     train_accuracies = metrics['train_acc']
-    val_losses = metrics['val_loss']
-    val_accuracies = metrics['val_acc']
-
-    # ==== Plot Metrics ====
-    plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies)
+    
+    # Print best hyperparameters
+    print("Best hyperparameters from optimization:")
+    for param, value in metrics['best_params'].items():
+        print(f"  {param}: {value}")
+    print(f"Best cross-validated accuracy: {metrics['best_cv_acc']:.4f}")
+    
+    # Plot training metrics
+    plot_training_metrics(train_losses, train_accuracies, save_path="training_metrics.png")

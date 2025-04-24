@@ -126,7 +126,8 @@ def main():
     # Create an Optuna study for maximizing accuracy
     study = optuna.create_study(direction='maximize', 
                               pruner=optuna.pruners.MedianPruner(n_warmup_steps=5))
-    study.optimize(objective, n_trials=10)  # Run 20 trials
+    # TODO: Change n_trials to 30 for actual optimization
+    study.optimize(objective, n_trials=1)  
     
     # Get the best hyperparameters
     best_params = study.best_params
@@ -139,42 +140,20 @@ def main():
     print(f"Best Cross-validated Accuracy: {best_value:.4f}")
     print(f"{'='*50}")
     
-    # Train final model with best hyperparameters
-    print("\nTraining final model with best hyperparameters...")
+    # Train final model with 100% of training data
+    print("\nTraining final model with 100% of training data...")
     
     # Extract best hyperparameters
     batch_size = best_params['batch_size']
     learning_rate = best_params['learning_rate']
     num_epochs = best_params['num_epochs']
-    weight_decay = best_params.get('weight_decay', 0)  # Use 0 as default if not present
-    
-    # Fixed parameters
-    data_path = './data/Train'
-    num_classes = 5
-    max_len = 16000
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    weight_decay = best_params.get('weight_decay', 0)
     
     # Load the full dataset for final model training
     full_dataset = prepare_datasets(data_dir=data_path, max_len=max_len)
     
-    # For final training, create an 80-20 split manually
-    dataset_size = len(full_dataset)
-    train_size = int(0.8 * dataset_size)
-    val_size = dataset_size - train_size
-    
-    # Generate indices for train and validation
-    indices = list(range(dataset_size))
-    np.random.shuffle(indices)
-    train_indices = indices[:train_size]
-    val_indices = indices[train_size:]
-    
-    # Create samplers
-    train_sampler = SubsetRandomSampler(train_indices)
-    val_sampler = SubsetRandomSampler(val_indices)
-    
-    # Create data loaders for final training
-    train_loader = DataLoader(full_dataset, batch_size=batch_size, sampler=train_sampler)
-    val_loader = DataLoader(full_dataset, batch_size=batch_size, sampler=val_sampler)
+    # Use all training data without validation split
+    train_loader = DataLoader(full_dataset, batch_size=batch_size, shuffle=True)
     print("Data loaded successfully.")
     
     # Initialize model
@@ -182,72 +161,32 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     
-    # Add learning rate scheduler to prevent overfitting
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-    optimizer, mode='min', factor=0.5, patience=3
-    )
+    # Add learning rate scheduler (may need adjustment since no validation loss)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
     print("Model initialized successfully.")
     
     # Track metrics
     train_losses = []
     train_accuracies = []
-    val_losses = []
-    val_accuracies = []
-    
-    # Early stopping parameters
-    patience = 7
-    best_val_loss = float('inf')
-    counter = 0
-    best_model_state = None
     
     # Train final model
     for epoch in range(1, num_epochs + 1):
         train_loss, train_acc = train(model, train_loader, criterion, optimizer, device)
-        val_loss, val_acc = evaluate(model, val_loader, criterion, device)
         
         # Update learning rate scheduler
-        scheduler.step(val_loss)
+        scheduler.step()
         
         train_losses.append(train_loss)
         train_accuracies.append(train_acc)
-        val_losses.append(val_loss)
-        val_accuracies.append(val_acc)
         
-        print(f"Epoch {epoch:02d} | "
-              f"Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f} | "
-              f"Val Loss: {val_loss:.4f}, Acc: {val_acc:.4f}")
+        print(f"Epoch {epoch:02d} | Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f}")
         
-        # Early stopping check
-        if val_loss < best_val_loss:
-            best_val_loss = val_loss
-            counter = 0
-            best_model_state = model.state_dict().copy()
-            print(f"New best model found with validation loss: {best_val_loss:.4f}")
-        else:
-            counter += 1
-            if counter >= patience:
-                print(f"Early stopping triggered after {epoch} epochs")
-                break
-    
-    # Load the best model state
-    if best_model_state:
-        model.load_state_dict(best_model_state)
-        print("Loaded the best model based on validation loss.")
-    
-    # Evaluate the final model
-    final_val_loss, final_val_acc = evaluate(model, val_loader, criterion, device)
-    print(f"Final model - Validation Loss: {final_val_loss:.4f}, Accuracy: {final_val_acc:.4f}")
-    
     # Save results
     metrics = {
         'train_loss': train_losses,
         'train_acc': train_accuracies,
-        'val_loss': val_losses,
-        'val_acc': val_accuracies,
         'best_params': best_params,
         'best_cv_acc': best_value,
-        'final_val_loss': final_val_loss,
-        'final_val_acc': final_val_acc
     }
     np.save("cnn1d_model_metrics.npy", metrics)
     
