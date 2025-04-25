@@ -1,0 +1,83 @@
+[I 2025-04-24 22:49:38,887] A new study created in memory with name: no-name-063dca20-d3c9-4df9-b7be-bb84adeea4d2
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 11 is already reported.
+  warnings.warn(
+[I 2025-04-24 23:01:14,168] Trial 0 finished with value: 0.5416877220785306 and parameters: {'batch_size': 8, 'learning_rate': 0.005766329671286869, 'num_epochs': 22, 'weight_decay': 0.0015902677667667484, 'dropout_rate': 0.3476009310156545}. Best is trial 0 with value: 0.5416877220785306.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+[I 2025-04-24 23:25:29,991] Trial 1 finished with value: 0.5862295114646094 and parameters: {'batch_size': 4, 'learning_rate': 0.0021753922397657684, 'num_epochs': 45, 'weight_decay': 0.00019541800109491392, 'dropout_rate': 0.4658917587503227}. Best is trial 1 with value: 0.5862295114646094.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+[I 2025-04-24 23:45:33,907] Trial 2 finished with value: 0.2526848764832229 and parameters: {'batch_size': 8, 'learning_rate': 0.060721424663027344, 'num_epochs': 46, 'weight_decay': 9.563446879073906e-05, 'dropout_rate': 0.4693188557848998}. Best is trial 1 with value: 0.5862295114646094.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+[I 2025-04-25 00:11:34,040] Trial 3 finished with value: 0.585597599932224 and parameters: {'batch_size': 4, 'learning_rate': 0.0007092334410082474, 'num_epochs': 48, 'weight_decay': 0.003108433797090071, 'dropout_rate': 0.4773235620970443}. Best is trial 1 with value: 0.5862295114646094.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-04-25 00:35:52,803] Trial 4 finished with value: 0.6825611354473466 and parameters: {'batch_size': 2, 'learning_rate': 0.0001585487313551254, 'num_epochs': 36, 'weight_decay': 8.761705163157775e-06, 'dropout_rate': 0.2623438905278731}. Best is trial 4 with value: 0.6825611354473466.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 9 is already reported.
+  warnings.warn(
+[I 2025-04-25 00:48:30,876] Trial 5 finished with value: 0.463671067123158 and parameters: {'batch_size': 2, 'learning_rate': 0.00015958711407941168, 'num_epochs': 19, 'weight_decay': 1.0204326201127087e-05, 'dropout_rate': 0.4482188467383603}. Best is trial 4 with value: 0.6825611354473466.
+[I 2025-04-25 00:49:21,067] Trial 6 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+[I 2025-04-25 01:07:52,595] Trial 7 finished with value: 0.2792181839022032 and parameters: {'batch_size': 8, 'learning_rate': 0.05644407110069525, 'num_epochs': 40, 'weight_decay': 0.0003867276757553677, 'dropout_rate': 0.21948863053562523}. Best is trial 4 with value: 0.6825611354473466.
+[I 2025-04-25 01:36:24,049] Trial 8 finished with value: 0.7883779110041312 and parameters: {'batch_size': 2, 'learning_rate': 0.0005545557396092901, 'num_epochs': 46, 'weight_decay': 7.6028294197852465e-06, 'dropout_rate': 0.22185514870548545}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 12 is already reported.
+  warnings.warn(
+[I 2025-04-25 01:49:19,404] Trial 9 finished with value: 0.6557098788503994 and parameters: {'batch_size': 4, 'learning_rate': 0.0016452076323075963, 'num_epochs': 24, 'weight_decay': 3.7800160489786185e-05, 'dropout_rate': 0.3447195794990267}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 15 is already reported.
+  warnings.warn(
+[I 2025-04-25 02:10:21,057] Trial 10 finished with value: 0.4406072928969754 and parameters: {'batch_size': 2, 'learning_rate': 0.011668864033521948, 'num_epochs': 31, 'weight_decay': 1.0069641233639339e-06, 'dropout_rate': 0.2935354826150684}. Best is trial 8 with value: 0.7883779110041312.
+[I 2025-04-25 02:12:43,974] Trial 11 pruned. 
+[I 2025-04-25 02:32:37,032] Trial 12 finished with value: 0.7236274114053055 and parameters: {'batch_size': 2, 'learning_rate': 0.0006716621366639675, 'num_epochs': 30, 'weight_decay': 1.1552402534806191e-05, 'dropout_rate': 0.26480812885399074}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+[I 2025-04-25 02:50:05,993] Trial 13 finished with value: 0.7526798929537877 and parameters: {'batch_size': 2, 'learning_rate': 0.00046134142656043323, 'num_epochs': 29, 'weight_decay': 1.6112408823282704e-06, 'dropout_rate': 0.20155417156866254}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+[I 2025-04-25 03:07:49,206] Trial 14 finished with value: 0.7609022181689516 and parameters: {'batch_size': 2, 'learning_rate': 0.0006509983694046674, 'num_epochs': 27, 'weight_decay': 1.0245252460623954e-06, 'dropout_rate': 0.2018358355573546}. Best is trial 8 with value: 0.7883779110041312.
+[I 2025-04-25 03:35:04,569] Trial 15 finished with value: 0.6759360314161695 and parameters: {'batch_size': 2, 'learning_rate': 0.0004992377033032929, 'num_epochs': 41, 'weight_decay': 2.8506285204359352e-06, 'dropout_rate': 0.3818273476603436}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 7 is already reported.
+  warnings.warn(
+[I 2025-04-25 03:44:54,225] Trial 16 finished with value: 0.6790970841369275 and parameters: {'batch_size': 2, 'learning_rate': 0.0013952217787757128, 'num_epochs': 15, 'weight_decay': 2.7985969711601183e-05, 'dropout_rate': 0.24165876773739045}. Best is trial 8 with value: 0.7883779110041312.
+[I 2025-04-25 03:46:36,797] Trial 17 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 17 is already reported.
+  warnings.warn(
+[I 2025-04-25 04:08:24,251] Trial 18 finished with value: 0.589381593832384 and parameters: {'batch_size': 2, 'learning_rate': 0.00025143838279381584, 'num_epochs': 34, 'weight_decay': 4.101655425892633e-06, 'dropout_rate': 0.40250281489433226}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+[I 2025-04-25 04:28:21,494] Trial 19 finished with value: 0.6051843656714558 and parameters: {'batch_size': 4, 'learning_rate': 0.011380556049735749, 'num_epochs': 39, 'weight_decay': 3.7337543614189123e-05, 'dropout_rate': 0.2408564110662294}. Best is trial 8 with value: 0.7883779110041312.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+[I 2025-04-25 04:56:53,018] Trial 20 finished with value: 0.738463876886889 and parameters: {'batch_size': 2, 'learning_rate': 0.0010551477919018002, 'num_epochs': 43, 'weight_decay': 1.8464646637048077e-06, 'dropout_rate': 0.3141447220128102}. Best is trial 8 with value: 0.7883779110041312.
+[I 2025-04-25 04:58:42,721] Trial 21 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+[I 2025-04-25 05:31:20,991] Trial 22 finished with value: 0.7703759076252984 and parameters: {'batch_size': 2, 'learning_rate': 0.000398489783668372, 'num_epochs': 50, 'weight_decay': 2.554099167575249e-06, 'dropout_rate': 0.23464216328118379}. Best is trial 8 with value: 0.7883779110041312.
+[I 2025-04-25 05:34:39,127] Trial 23 pruned. 
+[I 2025-04-25 06:05:11,273] Trial 24 finished with value: 0.8101708852243336 and parameters: {'batch_size': 2, 'learning_rate': 0.000874065328190455, 'num_epochs': 49, 'weight_decay': 1.6216370408185737e-05, 'dropout_rate': 0.23200649663912903}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 06:08:28,879] Trial 25 pruned. 
+[I 2025-04-25 06:39:06,892] Trial 26 finished with value: 0.7700554666826139 and parameters: {'batch_size': 2, 'learning_rate': 0.0009744835875924669, 'num_epochs': 46, 'weight_decay': 7.827885220875491e-05, 'dropout_rate': 0.26346018754460065}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 06:41:52,371] Trial 27 pruned. 
+[I 2025-04-25 06:44:26,655] Trial 28 pruned. 
+[I 2025-04-25 06:46:21,831] Trial 29 pruned. 
+[I 2025-04-25 06:48:32,940] Trial 30 pruned. 
+[I 2025-04-25 07:17:06,137] Trial 31 finished with value: 0.76247701347048 and parameters: {'batch_size': 2, 'learning_rate': 0.001146888676512412, 'num_epochs': 46, 'weight_decay': 0.00039806639613621203, 'dropout_rate': 0.26431052522228987}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 07:46:42,166] Trial 32 finished with value: 0.7397371686575867 and parameters: {'batch_size': 2, 'learning_rate': 0.0022234621262884027, 'num_epochs': 45, 'weight_decay': 8.505575442864346e-05, 'dropout_rate': 0.2278036571194248}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 08:19:50,414] Trial 33 finished with value: 0.7801590742595721 and parameters: {'batch_size': 2, 'learning_rate': 0.0008691745030057481, 'num_epochs': 50, 'weight_decay': 0.0001762993391265187, 'dropout_rate': 0.2534441030432696}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 08:23:06,964] Trial 34 pruned. 
+[I 2025-04-25 08:46:48,969] Trial 35 finished with value: 0.7571052670922601 and parameters: {'batch_size': 4, 'learning_rate': 0.0006718290889796156, 'num_epochs': 48, 'weight_decay': 0.0004520297608413413, 'dropout_rate': 0.27446289624534936}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 08:49:57,860] Trial 36 pruned. 
+[I 2025-04-25 09:19:06,040] Trial 37 finished with value: 0.72204314739785 and parameters: {'batch_size': 2, 'learning_rate': 0.0018707494116995131, 'num_epochs': 44, 'weight_decay': 7.399524909604994e-06, 'dropout_rate': 0.2937642582864127}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 09:36:30,232] Trial 38 finished with value: 0.6813022959120107 and parameters: {'batch_size': 8, 'learning_rate': 0.00020904386297005182, 'num_epochs': 38, 'weight_decay': 2.4187486590903554e-06, 'dropout_rate': 0.2543186188185711}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 09:39:31,345] Trial 39 pruned. 
+[I 2025-04-25 10:06:05,315] Trial 40 finished with value: 0.7574247113290574 and parameters: {'batch_size': 4, 'learning_rate': 0.0008327638442155685, 'num_epochs': 50, 'weight_decay': 0.0009649996327047786, 'dropout_rate': 0.28036705896801156}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 10:34:28,636] Trial 41 finished with value: 0.797858079048744 and parameters: {'batch_size': 2, 'learning_rate': 0.0009272733259630505, 'num_epochs': 46, 'weight_decay': 9.193639066376141e-05, 'dropout_rate': 0.23317079480797984}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 10:37:14,899] Trial 42 pruned. 
+[I 2025-04-25 11:07:15,676] Trial 43 finished with value: 0.7770054968329669 and parameters: {'batch_size': 2, 'learning_rate': 0.000383437152166926, 'num_epochs': 45, 'weight_decay': 0.00012646324108830123, 'dropout_rate': 0.21255116631688478}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 11:10:07,837] Trial 44 pruned. 
+[I 2025-04-25 11:36:24,048] Trial 45 finished with value: 0.7861647255819516 and parameters: {'batch_size': 2, 'learning_rate': 0.0014093154357233094, 'num_epochs': 41, 'weight_decay': 0.00025557058567366597, 'dropout_rate': 0.20429079965864777}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 11:54:14,886] Trial 46 finished with value: 0.7662734661942282 and parameters: {'batch_size': 8, 'learning_rate': 0.001574658929608892, 'num_epochs': 37, 'weight_decay': 0.0002362219900334444, 'dropout_rate': 0.2501446284426612}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 12:34:40,436] Trial 47 finished with value: 0.7602623329894697 and parameters: {'batch_size': 2, 'learning_rate': 0.0005620677140773735, 'num_epochs': 41, 'weight_decay': 0.001927559908649659, 'dropout_rate': 0.22517029577635314}. Best is trial 24 with value: 0.8101708852243336.
+[I 2025-04-25 12:38:15,445] Trial 48 pruned. 
+[I 2025-04-25 13:06:15,829] Trial 49 finished with value: 0.5603186468720877 and parameters: {'batch_size': 2, 'learning_rate': 0.0013187592148962849, 'num_epochs': 35, 'weight_decay': 0.0008415507310483112, 'dropout_rate': 0.4463791267634997}. Best is trial 24 with value: 0.8101708852243336.
