@@ -22,6 +22,19 @@ This repository contains code and resources for training neural networks to clas
 - **Processing**: Files are normalized and padded/trimmed to exactly 80 000 samples (5 second) the selection was made to ensure that the model can capture more complex features of the audio like accent. (Average length of the audio files is 5.2 seconds)
 - **Classes**: 5 accent classes (numbered 1-5 in filenames)
 
+- Dataset is not included in the repository. Users must download the dataset separately and place it in the `data/` folder. Resulting directory structure should be:
+```
+data/
+├── Train
+│   ├── 1f_1018.wav
+│   ├── 1f_1026.wav
+│   ├── ...
+├── Test set
+│   ├── 1035.wav
+│   ├── 1074.wav
+│   ├── ...
+```
+
 ## Model 1: Raw Audio (1D)
 - Implemented in [`models/cnn_1d_raw_audio.py`](models/cnn_1d_raw_audio.py)
 - Trainable with [`train_1d_raw.py`](train_1d_raw.py)
@@ -71,6 +84,8 @@ This repository contains code and resources for training neural networks to clas
   - Use Mel scale to mimic human hearing
   - Normalize and scale input values
 - **Spectrogram Dimensions**: Fixed input shape required (cropping or padding applied)
+
+![Spectrogram Example](Figures/spectrogram_example.png)
 
 - **Convolutional Blocks**: 
   - **Block 1**: 2D Conv → BatchNorm → ReLU → MaxPool → Dropout
