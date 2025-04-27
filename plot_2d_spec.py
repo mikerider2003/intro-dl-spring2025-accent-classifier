@@ -4,19 +4,20 @@ import joblib
 
 import matplotlib.pyplot as plt
 
-def plot_training_metrics(train_losses, train_accuracies, save_path=None):
+def plot_training_metrics(train_losses, train_accuracies, train_f1_scores=None, save_path=None):
     """
-    Plot training metrics (loss and accuracy) over epochs on a single plot.
+    Plot training metrics (loss, accuracy and F1-score) over epochs.
     
     Args:
         train_losses: List of training losses per epoch
         train_accuracies: List of training accuracies per epoch
+        train_f1_scores: List of training F1 scores per epoch (optional)
         save_path: Path to save the plot image (optional)
     """
     epochs = range(1, len(train_losses) + 1)
     
-    # Create a figure with primary and secondary y-axes
-    fig, ax1 = plt.subplots(figsize=(10, 6))
+    # Create figure and primary axis for loss
+    fig, ax1 = plt.subplots(figsize=(12, 6))
     
     # Plot losses on primary y-axis
     train_loss_line, = ax1.plot(epochs, train_losses, 'b--', label='Training Loss', alpha=0.6)
@@ -24,16 +25,24 @@ def plot_training_metrics(train_losses, train_accuracies, save_path=None):
     ax1.set_ylabel('Loss', color='blue')
     ax1.tick_params(axis='y', labelcolor='blue')
     
-    # Create secondary y-axis for accuracy
+    # Create secondary y-axis for accuracy and F1 score
     ax2 = ax1.twinx()
     train_acc_line, = ax2.plot(epochs, train_accuracies, 'r-', marker='o', label='Training Accuracy')
-    ax2.set_ylabel('Accuracy', color='red')
-    ax2.tick_params(axis='y', labelcolor='red')
+    
+    # Plot F1 score if available
+    if train_f1_scores is not None:
+        train_f1_line, = ax2.plot(epochs, train_f1_scores, 'g-', marker='s', label='Training F1 Score')
+        ax2.set_ylabel('Accuracy / F1 Score', color='black')
+        lines = [train_loss_line, train_acc_line, train_f1_line]
+    else:
+        ax2.set_ylabel('Accuracy', color='red')
+        lines = [train_loss_line, train_acc_line]
+    
+    ax2.tick_params(axis='y', labelcolor='black')
     
     plt.title('CNN 2D Spectrogram - Training Metrics')
     
-    # Add both lines to the legend
-    lines = [train_loss_line, train_acc_line]
+    # Add all lines to the legend
     labels = [line.get_label() for line in lines]
     plt.legend(lines, labels, loc='center right')
     
@@ -131,6 +140,7 @@ def plot_hyperparameter_search_results(study, save_path=None):
     except Exception as e:
         print(f"Error generating visualizations: {e}")
 
+# Update the main section to include F1 scores
 if __name__ == "__main__":
     file_name = "cnn2d_model_metrics.npy"
     
@@ -140,6 +150,7 @@ if __name__ == "__main__":
     # Extract available metrics
     train_losses = metrics['train_loss']
     train_accuracies = metrics['train_acc']
+    train_f1_scores = metrics.get('train_f1', None)  # Get F1 scores if available
     
     # Print best hyperparameters
     print("Best hyperparameters from optimization:")
@@ -148,7 +159,7 @@ if __name__ == "__main__":
     print(f"Best cross-validated accuracy: {metrics['best_cv_acc']:.4f}")
     
     # Plot training metrics
-    plot_training_metrics(train_losses, train_accuracies, save_path="Figures/2d_spec.png")
+    plot_training_metrics(train_losses, train_accuracies, train_f1_scores, save_path="Figures/2d_spec.png")
     
     # Load and plot the Optuna study results
     try:

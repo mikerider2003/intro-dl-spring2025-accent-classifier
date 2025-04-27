@@ -7,6 +7,7 @@ import joblib
 
 from torch.utils.data import DataLoader, SubsetRandomSampler
 from sklearn.model_selection import KFold
+from sklearn.metrics import f1_score
 
 from models.cnn_1d_raw_audio import CNN1DRawAudio
 from data_loader_1d_raw import prepare_datasets
@@ -14,6 +15,8 @@ from data_loader_1d_raw import prepare_datasets
 def train(model, dataloader, criterion, optimizer, device):
     model.train()
     total_loss, correct, total = 0, 0, 0
+    all_preds = []
+    all_labels = []
 
     for waveforms, labels in dataloader:
         waveforms, labels = waveforms.to(device), labels.to(device)
@@ -25,16 +28,24 @@ def train(model, dataloader, criterion, optimizer, device):
         optimizer.step()
 
         total_loss += loss.item() * waveforms.size(0)
-        correct += (outputs.argmax(1) == labels).sum().item()
+        preds = outputs.argmax(1)
+        correct += (preds == labels).sum().item()
         total += labels.size(0)
+        
+        # Store predictions and labels for F1 calculation
+        all_preds.extend(preds.cpu().numpy())
+        all_labels.extend(labels.cpu().numpy())
 
     avg_loss = total_loss / total
     accuracy = correct / total
-    return avg_loss, accuracy
+    f1 = f1_score(all_labels, all_preds, average='weighted')
+    return avg_loss, accuracy, f1
 
 def evaluate(model, dataloader, criterion, device):
     model.eval()
     total_loss, correct, total = 0, 0, 0
+    all_preds = []
+    all_labels = []
 
     with torch.no_grad():
         for waveforms, labels in dataloader:
@@ -43,12 +54,18 @@ def evaluate(model, dataloader, criterion, device):
             loss = criterion(outputs, labels)
 
             total_loss += loss.item() * waveforms.size(0)
-            correct += (outputs.argmax(1) == labels).sum().item()
+            preds = outputs.argmax(1)
+            correct += (preds == labels).sum().item()
             total += labels.size(0)
+            
+            # Store predictions and labels for F1 calculation
+            all_preds.extend(preds.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
 
     avg_loss = total_loss / total
     accuracy = correct / total
-    return avg_loss, accuracy
+    f1 = f1_score(all_labels, all_preds, average='weighted')
+    return avg_loss, accuracy, f1
 
 def objective(trial):
     # Define hyperparameters to optimize
@@ -61,7 +78,7 @@ def objective(trial):
     # Print trial information
     print(f"\n{'='*50}")
     print(f"Starting Trial {trial.number}")
-    print(f"Parameters: batch_size={batch_size}, lr={learning_rate:.6f}, epochs={num_epochs}, weight_decay={weight_decay:.6f}, dropout={dropout_rate:.2f}") # Added dropout to print
+    print(f"Parameters: batch_size={batch_size}, lr={learning_rate:.6f}, epochs={num_epochs}, weight_decay={weight_decay:.6f}, dropout={dropout_rate:.2f}")
     print(f"{'='*50}")
     
     # Fixed parameters
@@ -72,14 +89,13 @@ def objective(trial):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Load the complete dataset
-    # Using prepare_datasets() with your current implementation
     full_dataset = prepare_datasets(data_dir=data_path, max_len=max_len)
     
     # Setup K-Fold cross validation
     kfold = KFold(n_splits=k_folds, shuffle=True, random_state=42)
     
-    # For storing validation accuracies across folds
-    fold_val_accuracies = []
+    # For storing validation F1 scores across folds
+    fold_val_f1_scores = []
     
     # Start K-Fold cross-validation
     for fold, (train_ids, val_ids) in enumerate(kfold.split(range(len(full_dataset)))):
@@ -98,32 +114,33 @@ def objective(trial):
         optimizer = optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
         
         # Training loop for this fold
-        best_val_acc = 0
+        best_val_f1 = 0
         for epoch in range(1, num_epochs + 1):
-            train_loss, train_acc = train(model, train_loader, criterion, optimizer, device)
-            val_loss, val_acc = evaluate(model, val_loader, criterion, device)
+            train_loss, train_acc, train_f1 = train(model, train_loader, criterion, optimizer, device)
+            val_loss, val_acc, val_f1 = evaluate(model, val_loader, criterion, device)
             
             # Print epoch progress
-            print(f"  Epoch {epoch:02d}/{num_epochs:02d} | Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f} | Val Loss: {val_loss:.4f}, Acc: {val_acc:.4f}")
+            print(f"  Epoch {epoch:02d}/{num_epochs:02d} | Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f}, F1: {train_f1:.4f} | Val Loss: {val_loss:.4f}, Acc: {val_acc:.4f}, F1: {val_f1:.4f}")
             
-            # Pruning based on the intermediate value
+            # Pruning based on the intermediate F1 value
             if epoch == num_epochs // 2:
-                trial.report(val_acc, epoch)
+                trial.report(val_f1, epoch)
                 if trial.should_prune():
                     print(f"  Trial {trial.number} pruned at epoch {epoch}")
                     raise optuna.exceptions.TrialPruned()
             
-            if val_acc > best_val_acc:
-                best_val_acc = val_acc
+            # Track best F1 score
+            if val_f1 > best_val_f1:
+                best_val_f1 = val_f1
         
-        # Store best accuracy for this fold
-        fold_val_accuracies.append(best_val_acc)
-        print(f"  Fold {fold+1} best validation accuracy: {best_val_acc:.4f}")
+        # Store best F1 score for this fold
+        fold_val_f1_scores.append(best_val_f1)
+        print(f"  Fold {fold+1} best validation F1 score: {best_val_f1:.4f}")
     
-    # Average validation accuracy across all folds
-    mean_val_acc = np.mean(fold_val_accuracies)
-    print(f"\nTrial {trial.number} completed with mean validation accuracy: {mean_val_acc:.4f}")
-    return mean_val_acc
+    # Average validation F1 score across all folds
+    mean_val_f1 = np.mean(fold_val_f1_scores)
+    print(f"\nTrial {trial.number} completed with mean validation F1 score: {mean_val_f1:.4f}")
+    return mean_val_f1
 
 def main():
     # Fixed parameters
@@ -132,7 +149,7 @@ def main():
     max_len = 80000
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Create an Optuna study for maximizing accuracy
+    # Create an Optuna study for maximizing F1 score
     study = optuna.create_study(direction='maximize', 
                               pruner=optuna.pruners.MedianPruner(n_warmup_steps=5))
     # TODO: Change n_trials to 30 for actual optimization
@@ -149,7 +166,7 @@ def main():
     print("Best Hyperparameters:")
     for param, value in best_params.items():
         print(f"  {param}: {value}")
-    print(f"Best Cross-validated Accuracy: {best_value:.4f}")
+    print(f"Best Cross-validated F1 Score: {best_value:.4f}")
     print(f"{'='*50}")
     
     # Train final model with 100% of training data
@@ -181,25 +198,28 @@ def main():
     # Track metrics
     train_losses = []
     train_accuracies = []
-    
+    train_f1_scores = []
+
     # Train final model
     for epoch in range(1, num_epochs + 1):
-        train_loss, train_acc = train(model, train_loader, criterion, optimizer, device)
+        train_loss, train_acc, train_f1 = train(model, train_loader, criterion, optimizer, device)
         
         # Update learning rate scheduler
         scheduler.step()
         
         train_losses.append(train_loss)
         train_accuracies.append(train_acc)
+        train_f1_scores.append(train_f1)
         
-        print(f"Epoch {epoch:02d} | Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f}")
+        print(f"Epoch {epoch:02d} | Train Loss: {train_loss:.4f}, Acc: {train_acc:.4f}, F1: {train_f1:.4f}")
         
-    # Save results
+    # Update metrics dictionary
     metrics = {
         'train_loss': train_losses,
         'train_acc': train_accuracies,
+        'train_f1': train_f1_scores,
         'best_params': best_params,
-        'best_cv_acc': best_value,
+        'best_cv_f1': best_value,
     }
     np.save("cnn1d_model_metrics.npy", metrics)
     
