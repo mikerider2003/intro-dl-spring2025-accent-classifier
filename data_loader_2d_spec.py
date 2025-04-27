@@ -6,7 +6,7 @@ import torchaudio.transforms as T
 import matplotlib.pyplot as plt
 
 class AccentSpectrogramDataset(Dataset):
-    def __init__(self, file_paths, labels, sample_rate=16000, n_mels=128, n_fft=400, hop_length=160, max_len=500):
+    def __init__(self, file_paths, labels, sample_rate=16000, n_mels=80, n_fft=1024, hop_length=160, max_len=500):
         self.file_paths = file_paths
         self.labels = labels
         self.sample_rate = sample_rate
@@ -55,7 +55,7 @@ class AccentSpectrogramDataset(Dataset):
 def get_label_from_filename(filename):
     return int(filename[0]) - 1
 
-def prepare_datasets(data_dir='./data/Train', test_size=0.2, sample_rate=16000, n_mels=128, max_len=500):
+def prepare_datasets(data_dir='./data/Train', test_size=0.2, sample_rate=16000, n_mels=80, max_len=500):
     files = [f for f in os.listdir(data_dir) if f.endswith('.wav')]
     file_paths = [os.path.join(data_dir, f) for f in files]
     labels = [get_label_from_filename(f) for f in files]
@@ -63,7 +63,7 @@ def prepare_datasets(data_dir='./data/Train', test_size=0.2, sample_rate=16000, 
     return AccentSpectrogramDataset(file_paths, labels, sample_rate=sample_rate, n_mels=n_mels, max_len=max_len)
 
 class TestSpectrogramDataset(torch.utils.data.Dataset):
-    def __init__(self, file_paths, sample_rate=16000, n_mels=128, n_fft=400, hop_length=160, max_len=500):
+    def __init__(self, file_paths, sample_rate=16000, n_mels=80, n_fft=1024, hop_length=160, max_len=500):
         self.file_paths = file_paths
         self.sample_rate = sample_rate
         self.max_len = max_len
