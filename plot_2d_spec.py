@@ -27,11 +27,11 @@ def plot_training_metrics(train_losses, train_accuracies, train_f1_scores=None, 
     
     # Create secondary y-axis for accuracy and F1 score
     ax2 = ax1.twinx()
-    train_acc_line, = ax2.plot(epochs, train_accuracies, 'r-', marker='o', label='Training Accuracy')
+    train_acc_line, = ax2.plot(epochs, train_accuracies, 'r-', marker='o', label='Training Accuracy', markersize=4)
     
     # Plot F1 score if available
     if train_f1_scores is not None:
-        train_f1_line, = ax2.plot(epochs, train_f1_scores, 'g-', marker='s', label='Training F1 Score')
+        train_f1_line, = ax2.plot(epochs, train_f1_scores, 'g-', marker='s', label='Training F1 Score', markersize=4)
         ax2.set_ylabel('Accuracy / F1 Score', color='black')
         lines = [train_loss_line, train_acc_line, train_f1_line]
     else:
@@ -140,7 +140,7 @@ def plot_hyperparameter_search_results(study, save_path=None):
     except Exception as e:
         print(f"Error generating visualizations: {e}")
 
-# Update the main section to include F1 scores
+# Update the main section to properly display F1 scores
 if __name__ == "__main__":
     file_name = "cnn2d_model_metrics.npy"
     
@@ -156,7 +156,12 @@ if __name__ == "__main__":
     print("Best hyperparameters from optimization:")
     for param, value in metrics['best_params'].items():
         print(f"  {param}: {value}")
-    print(f"Best cross-validated accuracy: {metrics['best_cv_acc']:.4f}")
+    
+    # Display best CV F1 score instead of accuracy
+    if 'best_cv_f1' in metrics:
+        print(f"Best cross-validated F1 score: {metrics['best_cv_f1']:.4f}")
+    else:
+        print(f"Best cross-validated accuracy: {metrics.get('best_cv_acc', 0):.4f}")
     
     # Plot training metrics
     plot_training_metrics(train_losses, train_accuracies, train_f1_scores, save_path="Figures/2d_spec.png")
