@@ -1,0 +1,371 @@
+[I 2025-04-30 18:26:52,290] A new study created in memory with name: no-name-19c99e5a-19b8-49ba-9768-99e35a638b04
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+[I 2025-04-30 20:46:28,504] Trial 0 finished with value: 0.6492819880926265 and parameters: {'batch_size': 2, 'learning_rate': 0.0003953028200189807, 'num_epochs': 39, 'weight_decay': 1.2571257638202558e-05, 'dropout_rate': 0.3637930764337003}. Best is trial 0 with value: 0.6492819880926265.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+[I 2025-04-30 21:06:25,790] Trial 1 finished with value: 0.372313231776961 and parameters: {'batch_size': 2, 'learning_rate': 0.004651854818280559, 'num_epochs': 44, 'weight_decay': 1.2693978398626814e-06, 'dropout_rate': 0.48275452997177326}. Best is trial 0 with value: 0.6492819880926265.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 9 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 9 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 9 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 9 is already reported.
+  warnings.warn(
+[I 2025-04-30 21:13:57,108] Trial 2 finished with value: 0.6611708048538495 and parameters: {'batch_size': 2, 'learning_rate': 0.0027883463456523845, 'num_epochs': 18, 'weight_decay': 0.00012360229633118163, 'dropout_rate': 0.2107252591626916}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+[I 2025-04-30 21:32:15,693] Trial 3 finished with value: 0.514430688525209 and parameters: {'batch_size': 2, 'learning_rate': 0.005161256386833945, 'num_epochs': 44, 'weight_decay': 2.788520290875904e-06, 'dropout_rate': 0.3868849895673693}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+[I 2025-04-30 21:53:07,565] Trial 4 finished with value: 0.2450457638514844 and parameters: {'batch_size': 2, 'learning_rate': 0.010619102668829579, 'num_epochs': 50, 'weight_decay': 0.00020897755050238055, 'dropout_rate': 0.2875620102869073}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+[I 2025-04-30 22:05:10,378] Trial 5 finished with value: 0.4374344321481825 and parameters: {'batch_size': 2, 'learning_rate': 0.00016710872693213137, 'num_epochs': 29, 'weight_decay': 3.86004480561092e-06, 'dropout_rate': 0.48821427698750297}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 14 is already reported.
+  warnings.warn(
+[I 2025-04-30 22:14:08,373] Trial 6 finished with value: 0.6020822581225349 and parameters: {'batch_size': 8, 'learning_rate': 0.0001508166067272364, 'num_epochs': 29, 'weight_decay': 1.1177012527963497e-06, 'dropout_rate': 0.2650497501327119}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+[I 2025-04-30 22:34:24,946] Trial 7 finished with value: 0.6559247601270146 and parameters: {'batch_size': 2, 'learning_rate': 0.0003393257367581584, 'num_epochs': 48, 'weight_decay': 4.8719829324910414e-05, 'dropout_rate': 0.38766507023573993}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-04-30 22:46:25,497] Trial 8 finished with value: 0.646767604939041 and parameters: {'batch_size': 4, 'learning_rate': 0.0004642933935234914, 'num_epochs': 36, 'weight_decay': 7.457733440560701e-06, 'dropout_rate': 0.3833067435809795}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+[I 2025-04-30 23:06:24,564] Trial 9 finished with value: 0.13207241536627995 and parameters: {'batch_size': 2, 'learning_rate': 0.040691155396531786, 'num_epochs': 47, 'weight_decay': 0.00020925958045042543, 'dropout_rate': 0.24390043357760638}. Best is trial 2 with value: 0.6611708048538495.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+[I 2025-04-30 23:12:12,765] Trial 10 finished with value: 0.6637433402826195 and parameters: {'batch_size': 4, 'learning_rate': 0.0010497350691192878, 'num_epochs': 17, 'weight_decay': 0.005003551069377632, 'dropout_rate': 0.21532591242231103}. Best is trial 10 with value: 0.6637433402826195.
+[I 2025-04-30 23:12:45,801] Trial 11 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 8 is already reported.
+  warnings.warn(
+[I 2025-05-01 01:22:30,319] Trial 12 finished with value: 0.6526186063679356 and parameters: {'batch_size': 4, 'learning_rate': 0.00158790599637527, 'num_epochs': 16, 'weight_decay': 0.0022722586214781416, 'dropout_rate': 0.20593196408695255}. Best is trial 10 with value: 0.6637433402826195.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 11 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 11 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 11 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 11 is already reported.
+  warnings.warn(
+[I 2025-05-01 01:29:55,132] Trial 13 finished with value: 0.6451752303535796 and parameters: {'batch_size': 8, 'learning_rate': 0.001252734779927976, 'num_epochs': 22, 'weight_decay': 0.0008553953561375006, 'dropout_rate': 0.3113597536420968}. Best is trial 10 with value: 0.6637433402826195.
+[I 2025-05-01 01:30:36,964] Trial 14 pruned. 
+[I 2025-05-01 01:31:18,353] Trial 15 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+[I 2025-05-01 01:39:16,670] Trial 16 finished with value: 0.5539435464562958 and parameters: {'batch_size': 8, 'learning_rate': 0.0008024297510740223, 'num_epochs': 26, 'weight_decay': 0.008993485653700168, 'dropout_rate': 0.43265798531830024}. Best is trial 10 with value: 0.6637433402826195.
+[I 2025-05-01 01:39:51,698] Trial 17 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 10 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 10 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 10 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 10 is already reported.
+  warnings.warn(
+[I 2025-05-01 01:46:15,711] Trial 18 finished with value: 0.30525682153060046 and parameters: {'batch_size': 4, 'learning_rate': 0.010159945689484794, 'num_epochs': 20, 'weight_decay': 0.0029420897988808523, 'dropout_rate': 0.2758976281987985}. Best is trial 10 with value: 0.6637433402826195.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 7 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 7 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 7 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 7 is already reported.
+  warnings.warn(
+[I 2025-05-01 01:50:56,222] Trial 19 finished with value: 0.5805297068582161 and parameters: {'batch_size': 8, 'learning_rate': 0.0029263144819291435, 'num_epochs': 15, 'weight_decay': 2.757772810917316e-05, 'dropout_rate': 0.3236121518724945}. Best is trial 10 with value: 0.6637433402826195.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 16 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 16 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 16 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 16 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:01:20,187] Trial 20 finished with value: 0.746367791186757 and parameters: {'batch_size': 4, 'learning_rate': 0.0006271891960207783, 'num_epochs': 32, 'weight_decay': 0.00010679172448731335, 'dropout_rate': 0.21295309790894273}. Best is trial 20 with value: 0.746367791186757.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:09:49,725] Trial 21 finished with value: 0.736959404208386 and parameters: {'batch_size': 4, 'learning_rate': 0.0006952374950809641, 'num_epochs': 26, 'weight_decay': 0.00010487149726808013, 'dropout_rate': 0.20209413937134302}. Best is trial 20 with value: 0.746367791186757.
+[I 2025-05-01 02:10:52,207] Trial 22 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:22:33,964] Trial 23 finished with value: 0.6434977448384849 and parameters: {'batch_size': 4, 'learning_rate': 0.0001032846197679834, 'num_epochs': 36, 'weight_decay': 0.0005061713700423995, 'dropout_rate': 0.2596576495799344}. Best is trial 20 with value: 0.746367791186757.
+[I 2025-05-01 02:23:24,911] Trial 24 pruned. 
+[I 2025-05-01 02:24:27,566] Trial 25 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 13 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:32:53,105] Trial 26 finished with value: 0.6550453217230714 and parameters: {'batch_size': 4, 'learning_rate': 0.00027925140692865684, 'num_epochs': 26, 'weight_decay': 0.00027785511773864823, 'dropout_rate': 0.2570956009571332}. Best is trial 20 with value: 0.746367791186757.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:44:59,688] Trial 27 finished with value: 0.7749888779423835 and parameters: {'batch_size': 4, 'learning_rate': 0.001255700689148858, 'num_epochs': 36, 'weight_decay': 7.956545715978801e-05, 'dropout_rate': 0.22402218610990832}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-05-01 02:57:38,573] Trial 28 finished with value: 0.7506725275226452 and parameters: {'batch_size': 4, 'learning_rate': 0.000551262136133475, 'num_epochs': 37, 'weight_decay': 8.94612236315044e-05, 'dropout_rate': 0.2289586859310376}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+[I 2025-05-01 03:11:22,649] Trial 29 finished with value: 0.659238098704008 and parameters: {'batch_size': 4, 'learning_rate': 0.00046775652595899353, 'num_epochs': 40, 'weight_decay': 1.561892563685459e-05, 'dropout_rate': 0.33876992739651685}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-05-01 03:24:04,804] Trial 30 finished with value: 0.7372617176139407 and parameters: {'batch_size': 4, 'learning_rate': 0.0019500779345565627, 'num_epochs': 37, 'weight_decay': 4.3531923828440485e-05, 'dropout_rate': 0.2812105065100379}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 18 is already reported.
+  warnings.warn(
+[I 2025-05-01 03:36:34,682] Trial 31 finished with value: 0.729840266519889 and parameters: {'batch_size': 4, 'learning_rate': 0.0018477757024088564, 'num_epochs': 36, 'weight_decay': 5.398506208975292e-05, 'dropout_rate': 0.2855337864437548}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+[I 2025-05-01 03:49:58,521] Trial 32 finished with value: 0.6686674301576329 and parameters: {'batch_size': 4, 'learning_rate': 0.006821660573685716, 'num_epochs': 39, 'weight_decay': 6.770764588808756e-05, 'dropout_rate': 0.228717491150908}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 19 is already reported.
+  warnings.warn(
+[I 2025-05-01 04:03:17,508] Trial 33 finished with value: 0.740137208949561 and parameters: {'batch_size': 4, 'learning_rate': 0.0004926206730223341, 'num_epochs': 39, 'weight_decay': 2.639867015114395e-05, 'dropout_rate': 0.2525039604980045}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 20 is already reported.
+  warnings.warn(
+[I 2025-05-01 04:17:23,154] Trial 34 finished with value: 0.7210926408398288 and parameters: {'batch_size': 4, 'learning_rate': 0.0002909357028309245, 'num_epochs': 41, 'weight_decay': 8.525927456529313e-06, 'dropout_rate': 0.2500029667480644}. Best is trial 27 with value: 0.7749888779423835.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+[I 2025-05-01 04:32:09,921] Trial 35 finished with value: 0.7777728888466682 and parameters: {'batch_size': 4, 'learning_rate': 0.0004797687266167792, 'num_epochs': 43, 'weight_decay': 0.00016595281465814525, 'dropout_rate': 0.22483617204364492}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 21 is already reported.
+  warnings.warn(
+[I 2025-05-01 04:45:16,300] Trial 36 finished with value: 0.7741826404167005 and parameters: {'batch_size': 8, 'learning_rate': 0.0010104242252536168, 'num_epochs': 42, 'weight_decay': 0.00013902728496394037, 'dropout_rate': 0.21881937208586652}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+[I 2025-05-01 04:59:08,124] Trial 37 finished with value: 0.5415052787970579 and parameters: {'batch_size': 8, 'learning_rate': 0.004390179865629855, 'num_epochs': 44, 'weight_decay': 0.0001805929104453686, 'dropout_rate': 0.45349965299202816}. Best is trial 35 with value: 0.7777728888466682.
+[I 2025-05-01 05:00:26,778] Trial 38 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+[I 2025-05-01 05:14:46,031] Trial 39 finished with value: 0.7524564677444296 and parameters: {'batch_size': 8, 'learning_rate': 0.0009785747416443241, 'num_epochs': 46, 'weight_decay': 0.0001527364114611491, 'dropout_rate': 0.2683582058892043}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+[I 2025-05-01 05:29:15,649] Trial 40 finished with value: 0.7579492408885722 and parameters: {'batch_size': 8, 'learning_rate': 0.001085678809195172, 'num_epochs': 47, 'weight_decay': 0.0001963632881909223, 'dropout_rate': 0.2712844413327713}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 23 is already reported.
+  warnings.warn(
+[I 2025-05-01 05:43:17,485] Trial 41 finished with value: 0.7459056700801396 and parameters: {'batch_size': 8, 'learning_rate': 0.0009595845751332832, 'num_epochs': 46, 'weight_decay': 0.00016269228456272016, 'dropout_rate': 0.2626739002208418}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+[I 2025-05-01 05:58:45,896] Trial 42 finished with value: 0.7426636059932684 and parameters: {'batch_size': 8, 'learning_rate': 0.0011536281613894878, 'num_epochs': 50, 'weight_decay': 0.0006883957350406009, 'dropout_rate': 0.27226991891279206}. Best is trial 35 with value: 0.7777728888466682.
+[I 2025-05-01 06:00:05,371] Trial 43 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 22 is already reported.
+  warnings.warn(
+[I 2025-05-01 06:14:11,744] Trial 44 finished with value: 0.7003046224437786 and parameters: {'batch_size': 8, 'learning_rate': 0.0003665151538710204, 'num_epochs': 45, 'weight_decay': 0.00014505725120246094, 'dropout_rate': 0.30370322579347164}. Best is trial 35 with value: 0.7777728888466682.
+[I 2025-05-01 06:15:41,830] Trial 45 pruned. 
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+[I 2025-05-01 06:35:12,165] Trial 46 finished with value: 0.7755060952792066 and parameters: {'batch_size': 2, 'learning_rate': 0.0013418401109128882, 'num_epochs': 48, 'weight_decay': 6.971398196800335e-05, 'dropout_rate': 0.24439884327661118}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+[I 2025-05-01 06:54:47,456] Trial 47 finished with value: 0.7754308679480741 and parameters: {'batch_size': 2, 'learning_rate': 0.0014177443922240287, 'num_epochs': 48, 'weight_decay': 2.0293329050028054e-06, 'dropout_rate': 0.2440860027947335}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 25 is already reported.
+  warnings.warn(
+[I 2025-05-01 07:15:07,441] Trial 48 finished with value: 0.7388514784043159 and parameters: {'batch_size': 2, 'learning_rate': 0.002476514392866596, 'num_epochs': 50, 'weight_decay': 1.5831568328480344e-06, 'dropout_rate': 0.24174690890732353}. Best is trial 35 with value: 0.7777728888466682.
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+/home/u890345/.conda/envs/env1/lib/python3.12/site-packages/optuna/trial/_trial.py:497: UserWarning: The reported value is ignored because this `step` 24 is already reported.
+  warnings.warn(
+[I 2025-05-01 07:34:44,547] Trial 49 finished with value: 0.806149788116209 and parameters: {'batch_size': 2, 'learning_rate': 0.0014826778825420763, 'num_epochs': 48, 'weight_decay': 4.29913027900461e-06, 'dropout_rate': 0.2013195863854903}. Best is trial 49 with value: 0.806149788116209.
