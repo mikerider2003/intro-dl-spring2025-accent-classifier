@@ -103,6 +103,11 @@ data/
 5. Generate predictions on test data using `python evaluate_2d_spec.py`
 
 ### Results
+#### Model 1: Raw Audio (1D CNN)
+- **Performance**:
+  - Cross-validated F1 Score: 0.806
+  - Test set F1 Score: 0.751
+
 #### Model 2: log-Melspectogram (2D CNN)
 - **Performance**:
   - Cross-validated F1 Score: 0.970

@@ -41,7 +41,7 @@ def main():
     model_path = "cnn1d_model.pth"
     test_folder = "./data/Test set"
     output_file = "predictions_cnn1d.csv"
-    max_len = 16000
+    max_len = 80000
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     print(f"Loading model from {model_path}")
