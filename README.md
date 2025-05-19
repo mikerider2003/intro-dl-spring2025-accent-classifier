@@ -63,8 +63,7 @@ data/
 1. Install dependencies via `pip install -r requirements.txt`
 2. Place `.wav` files in the `data/Train` folder
 3. Run `python train_1d_raw.py` to start training
-4. Visualize training metrics using `python plot_1d_raw.py`
-5. Generate predictions on test data using `python evaluate_1d_raw.py`
+4. Generate predictions on test data using `python evaluate_1d_raw.py`
 
 ## Model 2: 2D Spectrogram (WIP)
 - Implemented in [`models/cnn_2d_spectrogram.py`](models/cnn_2d_spectrogram.py)
@@ -100,8 +99,7 @@ data/
 1. Install dependencies via `pip install -r requirements.txt`
 2. Place `.wav` files in the `data/Train` folder
 3. Run `python train_2d_spec.py` to start training
-4. Visualize training metrics using `python plot_2d_spec.py`
-5. Generate predictions on test data using `python evaluate_2d_spec.py`
+4. Generate predictions on test data using `python evaluate_2d_spec.py`
 
 ### Results
 #### Model 1: Raw Audio (1D CNN)
