@@ -15,6 +15,7 @@ This repository contains code and resources for training neural networks to clas
     - [Training Pipeline:](#training-pipeline-1)
     - [Usage](#usage-1)
   - [Results](#results)
+    - [Model 1: Raw Audio (1D CNN)](#model-1-raw-audio-1d-cnn)
     - [Model 2: log-Melspectogram (2D CNN)](#model-2-log-melspectogram-2d-cnn)
 
 ## Dataset
@@ -108,7 +109,15 @@ data/
   - Cross-validated F1 Score: 0.806
   - Test set F1 Score: 0.751
 
+- No sings of overfitting during validation
+
+![1D_Training_Folds](Figures/1d_k_fold.png)
+
 #### Model 2: log-Melspectogram (2D CNN)
 - **Performance**:
   - Cross-validated F1 Score: 0.970
   - Test set F1 Score: 0.925
+
+- No sings of overfitting during validation
+
+![2D_Training_Folds](Figures/2d_k_fold.png)
