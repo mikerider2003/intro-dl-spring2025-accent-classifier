@@ -32,6 +32,9 @@ def plot_k_fold(file_path, save_path):
     # Save the figure
     plt.savefig(save_path, dpi=150)
 
+import re
+import pandas as pd
+
 def extract_k_fold_scores(file_path, debug=False):
     with open(file_path, "r") as f:
         content = f.readlines()
@@ -57,7 +60,6 @@ def extract_k_fold_scores(file_path, debug=False):
     start = f"Starting Trial {best_trial}"
     end = f"Trial {best_trial} completed with mean validation F1 score:"
 
-    # Extract the k-folds F1 scores
     for i, line in enumerate(content):
         if start in line:
             start_index = i
@@ -65,39 +67,57 @@ def extract_k_fold_scores(file_path, debug=False):
             end_index = i
             extracted_content = ''.join(content[start_index+4:end_index])
             break
-    
 
-    # Adjusted regex patterns
+    # Regex pattern capturing all metrics
     pattern_fold = r"^Fold\s+(\d+)/5"
-    pattern_epoch = r"^Epoch\s+(\d+)/\d+\s+\|\s+Train Loss:\s+[^,]+,\s+Acc:\s+[^,]+,\s+F1:\s+([0-9.]+)\s+\|\s+Val Loss:\s+[^,]+,\s+Acc:\s+[^,]+,\s+F1:\s+([0-9.]+)"
+    pattern_epoch = (
+        r"^Epoch\s+(\d+)/\d+\s+\|"
+        r"\s+Train Loss:\s+([0-9.]+),\s+Acc:\s+([0-9.]+),\s+F1:\s+([0-9.]+)\s+\|"
+        r"\s+Val Loss:\s+([0-9.]+),\s+Acc:\s+([0-9.]+),\s+F1:\s+([0-9.]+)"
+    )
 
     folds_data = []
     current_fold = None
 
-    # Loop over each line
     for line in extracted_content.splitlines():
-        line = line.strip()  # remove leading/trailing spaces
+        line = line.strip()
         fold_match = re.match(pattern_fold, line)
         if fold_match:
             current_fold = int(fold_match.group(1))
             continue
         epoch_match = re.match(pattern_epoch, line)
         if epoch_match and current_fold is not None:
-            epoch, train_f1, val_f1 = epoch_match.groups()
+            (
+                epoch,
+                train_loss, train_acc, train_f1,
+                val_loss, val_acc, val_f1
+            ) = epoch_match.groups()
+
             folds_data.append({
                 "Fold": current_fold,
                 "Epoch": int(epoch),
+                "Train_Loss": float(train_loss),
+                "Train_Acc": float(train_acc),
                 "Train_F1": float(train_f1),
+                "Val_Loss": float(val_loss),
+                "Val_Acc": float(val_acc),
                 "Val_F1": float(val_f1)
             })
 
-    # Create and print DataFrame
     df = pd.DataFrame(folds_data)
     if debug:
         print(df)
 
     return df
 
+
 if __name__ == "__main__":
     plot_k_fold("cnn_1d_slurm.cerulean.30550.out", "Figures/1d_k_fold.png")
     plot_k_fold("cnn_2d_slurm.cerulean.30252.out", "Figures/2d_k_fold.png")
+
+    # Save the DataFrame to a CSV file
+    df = extract_k_fold_scores("cnn_1d_slurm.cerulean.30550.out")
+    df.to_csv("Figures/Best Trials/1d_folds.csv", index=False)
+
+    df = extract_k_fold_scores("cnn_2d_slurm.cerulean.30252.out")
+    df.to_csv("Figures/Best Trials/2d_folds.csv", index=False)

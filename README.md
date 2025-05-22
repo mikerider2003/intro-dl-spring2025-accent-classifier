@@ -104,18 +104,20 @@ data/
 ### Results
 #### Model 1: Raw Audio (1D CNN)
 - **Performance**:
-  - Cross-validated F1 Score: 0.806
+  - Mean Cross-validated F1 Score: 0.806
   - Test set F1 Score: 0.751
 
-- No sings of overfitting during validation
-
-![1D_Training_Folds](Figures/1d_k_fold.png)
+<div align="center">
+  <img src="Figures/1d_k_fold.png" alt="1D CNN Model Validation Results">
+  <p><i>Figure 3: Cross-validation performance for the 1D CNN model. The plot shows consistent F1 scores across training and validation sets throughout the k-fold process, demonstrating robust generalization with minimal gap between training and validation metrics.</i></p>
+</div>
 
 #### Model 2: log-Melspectogram (2D CNN)
 - **Performance**:
-  - Cross-validated F1 Score: 0.970
+  - Mean Cross-validated F1 Score: 0.970
   - Test set F1 Score: 0.925
 
-- No sings of overfitting during validation
-
-![2D_Training_Folds](Figures/2d_k_fold.png)
+<div align="center">
+  <img src="Figures/2d_k_fold.png" alt="2D CNN Model Validation Results">
+  <p><i>Figure 4: Cross-validation performance for the 2D CNN model. The closely aligned training and validation F1 scores across all folds indicate excellent generalization capability without overfitting, despite the model's higher complexity.</i></p>
+</div>
