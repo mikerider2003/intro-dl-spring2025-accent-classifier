@@ -17,6 +17,7 @@ This repository contains code and resources for training neural networks to clas
   - [Results](#results)
     - [Model 1: Raw Audio (1D CNN)](#model-1-raw-audio-1d-cnn)
     - [Model 2: log-Melspectogram (2D CNN)](#model-2-log-melspectogram-2d-cnn)
+    - [Comparison of Model 1 and Model 2](#comparison-of-model-1-and-model-2)
 
 ## Dataset
 - **Format**: Audio samples as mono-channel WAV files at 16kHz sample rate
@@ -90,9 +91,9 @@ data/
 - **Final Model Training**: Uses best hyperparameters to train on all available data
 
 <!-- Example picture Figures/spectogram_example.png -->
-[![Spectrogram Example](Figures/spectrogram_example.png)](Figures/spectrogram_example.png)
 <div align="center">
-  <i>Example of a log-mel spectrogram extracted from an audio sample, showing time on the x-axis and frequency on the y-axis. The model processes these 2D representations to identify accent patterns.</i>
+  <img src="Figures/spectrogram_example.png" alt="Spectrogram Example" width="800px">
+  <p><i>Example of a log-mel spectrogram extracted from an audio sample, showing time on the x-axis and frequency on the y-axis. The model processes these 2D representations to identify accent patterns.</i></p>
 </div>
 
 ### Usage
@@ -109,7 +110,7 @@ data/
 
 <div align="center">
   <img src="Figures/1d_k_fold.png" alt="1D CNN Model Validation Results">
-  <p><i>Figure 3: Cross-validation performance for the 1D CNN model. The plot shows consistent F1 scores across training and validation sets throughout the k-fold process, demonstrating robust generalization with minimal gap between training and validation metrics.</i></p>
+  <p><i>Cross-validation performance for the 1D CNN model. The plot shows consistent F1 scores across training and validation sets throughout the k-fold process, demonstrating robust generalization with minimal gap between training and validation metrics.</i></p>
 </div>
 
 #### Model 2: log-Melspectogram (2D CNN)
@@ -119,5 +120,30 @@ data/
 
 <div align="center">
   <img src="Figures/2d_k_fold.png" alt="2D CNN Model Validation Results">
-  <p><i>Figure 4: Cross-validation performance for the 2D CNN model. The closely aligned training and validation F1 scores across all folds indicate excellent generalization capability without overfitting, despite the model's higher complexity.</i></p>
+  <p><i>Cross-validation performance for the 2D CNN model. The closely aligned training and validation F1 scores across all folds indicate excellent generalization capability without overfitting, despite the model's higher complexity.</i></p>
+</div>
+
+#### Comparison of Model 1 and Model 2
+|        | 2D CNN                 |                         |           | 1D CNN                 |                         |           |
+|--------|------------------------|-------------------------|-----------|------------------------|-------------------------|-----------|
+| Metric | Train                  | Val                     | Test      | Train                  | Val                     | Test      |
+| Acc    | 0.938                  | 0.970                   | –         | 0.793                  | 0.811                   | –         |
+| F1     | 0.937                  | 0.970                   | 0.925     | 0.790                  | 0.806                   | 0.751     |
+| Loss   | 0.182                  | 0.135                   | –         | 0.535                  | 0.535                   | –         |
+
+Metrics averaged across five folds, using the epoch with the highest validation F1-score in each fold and results on the test set.
+
+
+The 2D CNN model consistently outperforms the 1D CNN across all folds, demonstrating superior feature extraction capabilities from the spectrogram representations compared to raw audio processing.
+
+<div align="center">
+  <img src="Figures/combined_models_comparison.png" alt="1D vs 2D CNN Model Comparison" width="400px">
+  <p><i>Comparison of 1D CNN (blue) and 2D CNN (orange) F1 scores across 5-fold cross-validation. The graph shows both mean performance (bold lines) and individual fold results (transparent lines). </i></p>
+</div>
+
+The 1D CNN performs reasonably well for certain accent-gender combinations particularly for accents 1 and 3. However, its performance deteriorates for more challenging accents, most notably accent 5, where accuracy drops significantly, especially for female speakers (0.399). In contrast, the 2D CNN exhibits consistently higher accuracy across almost all categories. It achieves perfect classification for multiple accent-gender pairs and significantly improves performance for difficult classes, such as accent 5 (female: 0.876), although some performance gap remains for male speakers of accent 5 (0.679).
+
+<div align="center">
+  <img src="Figures/confusion_heatmap.png" alt="Per-accent and per-gender accuracy comparisons" width="600px">
+  <p><i>Figure 4: Per-accent and per-gender accuracy comparisons between the 1D and 2D CNN models.</i></p>
 </div>

@@ -32,8 +32,71 @@ def plot_k_fold(file_path, save_path):
     # Save the figure
     plt.savefig(save_path, dpi=150)
 
-import re
-import pandas as pd
+def plot_k_fold_with_mean(file_path_1, file_path_2, save_path, model1_name="1D CNN", model2_name="2D CNN"):
+    df_1 = extract_k_fold_scores(file_path_1)
+    df_2 = extract_k_fold_scores(file_path_2)
+    
+    folds = df_1['Fold'].unique()
+    
+    # Create a single figure
+    plt.figure(figsize=(6, 4))
+    
+    # Colors for each model
+    model1_color = '#1f77b4'  # blue
+    model2_color = '#ff7f0e'  # orange
+    fold_alpha = 0.3  # transparency for individual folds
+    
+    # Plot individual folds for Model 1 with transparency
+    for fold in folds:
+        fold_data = df_1[df_1['Fold'] == fold]
+        plt.plot(fold_data['Epoch'], fold_data['Train_F1'], 
+                 color=model1_color, linestyle='-', alpha=fold_alpha)
+        plt.plot(fold_data['Epoch'], fold_data['Val_F1'], 
+                 color=model1_color, linestyle='--', alpha=fold_alpha)
+    
+    # Plot individual folds for Model 2 with transparency
+    for fold in folds:
+        fold_data = df_2[df_2['Fold'] == fold]
+        plt.plot(fold_data['Epoch'], fold_data['Train_F1'], 
+                 color=model2_color, linestyle='-', alpha=fold_alpha)
+        plt.plot(fold_data['Epoch'], fold_data['Val_F1'], 
+                 color=model2_color, linestyle='--', alpha=fold_alpha)
+    
+    # Calculate and plot mean for each model
+    epochs = df_1['Epoch'].unique()
+    
+    # Model 1 means
+    train_means_1 = [df_1[df_1['Epoch'] == e]['Train_F1'].mean() for e in epochs]
+    val_means_1 = [df_1[df_1['Epoch'] == e]['Val_F1'].mean() for e in epochs]
+    
+    # Model 2 means
+    train_means_2 = [df_2[df_2['Epoch'] == e]['Train_F1'].mean() for e in epochs]
+    val_means_2 = [df_2[df_2['Epoch'] == e]['Val_F1'].mean() for e in epochs]
+    
+    # Plot means with thicker lines
+    plt.plot(epochs, train_means_1, color=model1_color, linestyle='-', linewidth=2.5, 
+             label=f'{model1_name} - Train (Mean)')
+    plt.plot(epochs, val_means_1, color=model1_color, linestyle='--', linewidth=2.5, 
+             label=f'{model1_name} - Val (Mean)')
+    
+    plt.plot(epochs, train_means_2, color=model2_color, linestyle='-', linewidth=2.5, 
+             label=f'{model2_name} - Train (Mean)')
+    plt.plot(epochs, val_means_2, color=model2_color, linestyle='--', linewidth=2.5, 
+             label=f'{model2_name} - Val (Mean)')
+    
+    # plt.title('Training and Validation F1 Scores Comparison (Mean ± Individual Folds)', fontsize=16)
+    plt.xlabel('Epoch', fontsize=12)
+    plt.ylabel('F1 Score', fontsize=12)
+    plt.ylim(0, 1)
+    plt.grid(True, alpha=0.3)
+    
+    # Add a legend with only the mean lines
+    plt.legend(fontsize=10)
+    
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    plt.close()
+
 
 def extract_k_fold_scores(file_path, debug=False):
     with open(file_path, "r") as f:
@@ -121,3 +184,7 @@ if __name__ == "__main__":
 
     df = extract_k_fold_scores("cnn_2d_slurm.cerulean.30252.out")
     df.to_csv("Figures/Best Trials/2d_folds.csv", index=False)
+
+    plot_k_fold_with_mean("cnn_1d_slurm.cerulean.30550.out", 
+                          "cnn_2d_slurm.cerulean.30252.out", 
+                          "Figures/combined_models_comparison.png")
